@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1339397489 source:/home/zahlenteufel/Desktop/ACMPractice/CodeChef/June 2012/Polynomial Partition/main.cpp
+	<iostream>
+	<cstdio>
+	<cstdlib>
+	<vector>
+	<algorithm>
+
