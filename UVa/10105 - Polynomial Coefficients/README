@@ -1,0 +1,10 @@
+Explicación con un ejemplo:
+
+(a+b+c)^5 = (a+b+c)(a+b+c)(a+b+c)(a+b+c)(a+b+c)
+
+El coeficiente de ab^3c cuenta la cantidad de formas de elegir de los 5 factores
+una 'a', luego de los 4 restantes elegir dos 'b' y luego con lo que queda una 'c'.
+
+La respuesta es C(5,1)*C(4,3)*C(1,1), donde C(n,k) es el coeficiente binomial, que
+se calcula facilmente con una dinámica.
+
