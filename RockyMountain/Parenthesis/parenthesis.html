@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Problem A: Parenthesis</title>
+    <style type="text/css"><!--
+      html { margin-left: 4em; }
+      h1 { margin-left: -2em; font-size: 14pt; }
+      tt,pre { font-weight: bold; font-size: 12pt; }
+      .image { text-align: center; border: 1px solid black; margin: 1em; }
+      .left { float: left; }
+      .right { float: right; }
+      .break { page-break-before: always; }
+--></style>
+</head><body>
+    <h1>Problem A: Parenthesis</h1>
+
+    <br/><b>Source:</b> <tt>parenthesis.{c,cpp,java}</tt>
+    <br/><b>Input:</b> <tt>console {stdin,cin,System.in}</tt>
+    <br/><b>Output:</b> <tt>console {stdout,cout,System.out}</tt>
+
+<p>To a computer, there is no difference between the expression
+<tt>(((x)+(y))(t))</tt> and <tt>(x+y)t</tt>; but, to a human, the latter is easier to
+read. When writing automatically generated expressions that a human
+may have to read, it is useful to minimize the number of parentheses
+in an expression. We assume expressions consist of only two
+operations: addition (+) and multiplication (juxtaposition), and these
+operations act on single lower-case letter variables
+only. Specifically, here is the grammar for an expression <tt>E</tt>:</p>
+<pre>
+E : P | P '+' E
+P : F | F  P
+F : V | '(' E ')'
+V : 'a' | 'b' | .. | 'z'
+</pre>
+
+<p>The addition (<tt>+</tt>, as in <tt>x+y</tt>) and multiplication
+(juxtaposition, as in <tt>xy</tt>) operators are
+associative: <tt>x+(y+z)=(x+y)+z=x+y+z</tt> and <tt>x(yz)=(xy)z=xyz</tt>. Commutativity
+and distributivity of these operations should not be
+assumed. Parentheses have the highest precedence, followed by
+multiplication and then addition.</p>
+
+<h1>Input</h1>
+
+<p>The input consists of a number of cases. Each case is given by one
+line that satisfies the grammar above. Each expression is at most 1000
+characters long.</p>
+ 
+<h1>Output</h1>
+
+<p>For each case, print on one line the same expression with all
+unnecessary parentheses removed.</p> 
+
+<h1 class="break">Sample input</h1>
+<pre>
+x
+(x+(y+z))
+(x+(yz))
+(x+y(x+t))
+x+y+xt
+</pre>
+
+<h1>Sample Output</h1>
+<pre>
+x
+x+y+z
+x+yz
+x+y(x+t)
+x+y+xt
+</pre>
+</body>
+</html>
