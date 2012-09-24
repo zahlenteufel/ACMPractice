@@ -105,15 +105,17 @@ struct trie {
 	}
 };
 
-int main(int agrc, char* argv[]){
-	int n = strlen(argv[1]);
+int main(){
+	char s[50];
+	cin.getline(s,50);
+	int n = strlen(s);
     trie t;
     for (int sz=1;sz<=n;sz++)
         forn (i,n-sz+1)
-            t.insert(argv[1]+i,sz);
+            t.insert(s+i,sz);
     
     //t.printTrie();
-    //t.printMaxBranch();
+    t.printMaxBranch();
     cout << endl;
 
     return 0;
