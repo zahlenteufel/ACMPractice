@@ -3,6 +3,7 @@
 //~ 
 #include <cstdio>
 #include <cstring>
+#include <iostream>
 
 #define forn(i,n) for(int i=0;i<int(n);i++)
 #define forsn(i,s,n) for(int i=int(s);i<int(n);i++)
@@ -13,29 +14,35 @@ char s[1000100];
 int arr[1000100];
 
 int main() {
-	//freopen("test.in", "r", stdin);
+	freopen("test.in", "r", stdin);
 	int L;
 	while (scanf("%d %s\n", &L, s)==2 && L!=-1) {
 		arr[0] = 0;
 		int n = strlen(s);
-		forsn(i,1,n) {
-			if (s[i]==s[arr[i-1]])
-				arr[i] = arr[i-1] + 1;
-			else
-				arr[i] = 0;
-		}
 		int res = 0;
-		if (n > L) {
+		
+		if (n > L)
 			res = 0;
-		} else if (arr[n-1] > n/2) {
+		else if (n==L)
+			res = 1;
+		else if (n==1)
 			res = L;
-		} else {
-			if (n > L) {
-				res += 1;
+		else { // n < L
+			int j = 0;
+			int i = 1;
+			while( i < n ){
+				if(s[j] == s[i])
+					arr[i++] = ++j;
+				else if(j>0)
+					j = arr[j-1];
+				else
+					arr[i++] = 0;
+			}
+			if (arr[n-1] > 0) {
+				res ++;
 				L -= n;
 			}
-			int k = n - arr[n-1];
-			res += L / k;
+			res += (L / (n - arr[n-1]));
 		}
 		printf("%d\n", res);
 	}
